@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
         ?>
         <button type="button" 
         onclick="location.href='./main_board.php';"
-    >   이전으로</button>
+    >   글보기</button>
         <?php
     }
 }
