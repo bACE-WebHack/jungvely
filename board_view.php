@@ -7,7 +7,7 @@ $password = "web";
 $db = "web";
 
 $conn = new mysqli($host, $username, $password, $db);
-$result = $conn->query("select * from board where no = '$_GET[no]';")->fetch_array();
+$post = $conn->query("select * from board where no = '$_GET[no]';")->fetch_object();
 $conn->close();
 }
 ?>
@@ -27,35 +27,19 @@ $conn->close();
         <table class="table table-bordered">
         <tr>
             <td scope="col">No</td>
-            <?php
-            foreach ($result as $key => $row) {
-                echo "$row[0]\n";
-            }
-            ?>
+            <td scope="col"><?php echo "$post->no"?></td>
         </tr>
         <tr>
             <td scope="col">Title</td>
-            <?php
-            foreach ($result as $key => $row) {
-                echo "$row[1]\n";
-            }
-            ?>
+            <td scope="col"><?php echo "$post->title"?></td>
         </tr>
         <tr>
             <td scope="col">Writer</td>
-            <?php
-            foreach ($result as $key => $row) {
-                echo "$row[2]\n";
-            }
-            ?>
+            <td scope="col"><?php echo "$post->writer"?></td>       
         </tr>
         <tr>
             <td scope="col">Contents</td>
-            <?php
-            foreach ($result as $key => $row) {
-                echo "$row[3]\n";
-            }
-            ?>
+            <td scope="col"><?php echo "$post->contents"?></td>
         </tr>
         </table>
     </div>
